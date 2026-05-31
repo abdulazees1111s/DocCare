@@ -46,6 +46,15 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
+app.get("/", (_req, res) =>
+  res.json({
+    ok: true,
+    app: "doctor-appointment-system",
+    message: "DocCare API is running",
+    health: "/health",
+    endpoints: ["/api/auth/login", "/api/doctors", "/api/appointments/my", "/api/settings"]
+  })
+);
 app.get("/health", (_req, res) => res.json({ ok: true, app: "doctor-appointment-system" }));
 app.use("/api/auth", authRoutes);
 app.use("/api/doctors", doctorRoutes);

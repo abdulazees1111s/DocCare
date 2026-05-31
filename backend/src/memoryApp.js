@@ -170,6 +170,16 @@ export function createMemoryApp() {
   app.use(morgan("dev"));
   app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
+  app.get("/", (_req, res) =>
+    res.json({
+      ok: true,
+      app: "doctor-appointment-system",
+      mode: "memory-demo",
+      message: "DocCare API is running",
+      health: "/health",
+      endpoints: ["/api/auth/login", "/api/doctors", "/api/appointments/my", "/api/settings"]
+    })
+  );
   app.get("/health", (_req, res) => res.json({ ok: true, mode: "memory-demo" }));
 
   app.post("/api/auth/login", (req, res) => {
