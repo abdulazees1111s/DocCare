@@ -24,10 +24,19 @@ const allowedOrigins = new Set([
   "http://127.0.0.1:5173"
 ]);
 
+function isAllowedOrigin(origin) {
+  try {
+    const { hostname } = new URL(origin);
+    return allowedOrigins.has(origin) || hostname.endsWith(".vercel.app");
+  } catch {
+    return false;
+  }
+}
+
 app.use(
   cors({
     origin(origin, callback) {
-      if (!origin || allowedOrigins.has(origin)) return callback(null, true);
+      if (!origin || isAllowedOrigin(origin)) return callback(null, true);
       return callback(new Error("Not allowed by CORS"));
     },
     credentials: true
