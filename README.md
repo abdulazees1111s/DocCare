@@ -4,6 +4,17 @@
 
 DocCare is a full-stack healthcare appointment platform built with React.js, Node.js, Express.js, and MongoDB. The platform connects Patients, Doctors, and Administrators through a secure and user-friendly appointment management system.
 
+## Live Demo
+
+Frontend:
+https://frontend-phi-flame-38.vercel.app
+
+Backend:
+https://backend-lovat-seven-54.vercel.app
+
+Health Check:
+https://backend-lovat-seven-54.vercel.app/health
+
 ## Features
 
 ### Patient
