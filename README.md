@@ -1,55 +1,103 @@
-# Doctor Appointment System
+# DocCare - Doctor Appointment Management System
 
-Full-stack React.js + Node.js application with User, Doctor, and Admin roles.
+## Overview
+
+DocCare is a full-stack healthcare appointment platform built with React.js, Node.js, Express.js, and MongoDB. The platform connects Patients, Doctors, and Administrators through a secure and user-friendly appointment management system.
 
 ## Features
 
-- JWT authentication with role-based access
-- Doctor registration with certificate upload and admin approval
-- Admin settings for commission and branding logo
-- Doctor availability slots
-- Appointment booking with double-booking protection
-- Fee calculation: doctor fee + admin commission
-- 24-hour cancel/reschedule restriction
-- Reschedule request with next available slot suggestion
-- Prescriptions and appointment completion
-- Booking and reminder notifications
-- Dashboards for all roles
+### Patient
 
-## Setup
+* Register and login
+* Browse verified doctors
+* View consultation fees
+* Book appointments from available slots
+* Receive notifications and reminders
+* View prescriptions
+* Manage appointments
 
-1. Install MongoDB locally or use MongoDB Atlas.
-2. Copy `.env.example` to `backend/.env`.
-3. Install dependencies:
+### Doctor
+
+* Register with certificate upload
+* Await admin approval
+* Manage profile and consultation fees
+* Create and manage availability slots
+* View appointments
+* Add prescriptions
+* Receive booking notifications
+
+### Admin
+
+* Approve or reject doctors
+* Monitor users and appointments
+* Configure commission settings
+* Upload application branding/logo
+* View platform analytics
+
+## Technical Features
+
+* JWT Authentication
+* Role-Based Access Control
+* Slot-Based Appointment Booking
+* Double Booking Prevention
+* Doctor Fee + Admin Commission Calculation
+* Notification System
+* Appointment Reminders
+* Prescription Management
+* File Upload Support
+* Responsive Dashboard UI
+
+## Technology Stack
+
+Frontend:
+
+* React.js
+* Vite
+* Axios
+* Tailwind CSS
+
+Backend:
+
+* Node.js
+* Express.js
+* JWT
+* Multer
+
+Database:
+
+* MongoDB
+* Mongoose
+
+## Installation
+
+Backend:
 
 ```bash
-npm run install:all
+cd backend
+npm install
+npm run dev
 ```
 
-4. Seed the default admin:
+Frontend:
 
 ```bash
-npm run seed --prefix backend
-```
-
-5. Start backend and frontend in two terminals:
-
-```bash
-npm run dev:backend
-npm run dev:frontend
+cd frontend
+npm install
+npm run dev
 ```
 
 ## Default Admin
 
-- Email: `admin@docapp.com`
-- Password: `Admin@123`
+Email:
+[admin@docapp.com](mailto:admin@docapp.com)
 
-## Demo Checklist
+Password:
+Admin@123
 
-1. Register a doctor with certificate.
-2. Login as admin and approve the doctor.
-3. Login as doctor and create availability slots.
-4. Register/login as user and book an appointment.
-5. Verify commission in payable fee.
-6. Doctor adds prescription and completes appointment.
-7. User views prescription and notifications.
+## Project Name
+
+DocCare – Trusted Healthcare Appointment Platform
+
+## Author
+
+Abdul Azees
