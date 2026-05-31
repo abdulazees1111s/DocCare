@@ -13,7 +13,7 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const secret = process.env.JWT_SECRET || "dev_secret";
-const dataDir = path.join(__dirname, "../data");
+const dataDir = process.env.VERCEL ? "/tmp/doccare-data" : path.join(__dirname, "../data");
 const dataFile = path.join(dataDir, "memory-db.json");
 
 function defaultDb() {
