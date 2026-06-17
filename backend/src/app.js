@@ -19,7 +19,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const allowedOrigins = new Set([
-  process.env.CLIENT_URL || "http://localhost:5173",
+  process.env.CLIENT_URL || "https://frontend-phi-flame-38.vercel.app",
+  "https://frontend-phi-flame-38.vercel.app",
   "http://localhost:5173",
   "http://127.0.0.1:5173"
 ]);
