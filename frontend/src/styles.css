@@ -84,9 +84,9 @@ a {
 }
 
 .auth-panel {
-  width: min(920px, 100%);
+  width: min(980px, 100%);
   display: grid;
-  grid-template-columns: 1fr 420px;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 420px);
   gap: 28px;
   align-items: start;
   padding: 28px;
@@ -94,6 +94,10 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.55);
   border-radius: 10px;
   box-shadow: 0 22px 70px rgba(0, 0, 0, 0.22);
+}
+
+.auth-panel > div:first-child {
+  grid-row: 1 / span 3;
 }
 
 .auth-panel h1 {
@@ -106,6 +110,8 @@ a {
 
 .tabs {
   grid-column: 2;
+  justify-self: end;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 6px;
@@ -150,6 +156,8 @@ a {
 
 .auth-panel .form {
   grid-column: 2;
+  justify-self: end;
+  width: 100%;
 }
 
 input,
@@ -183,6 +191,8 @@ textarea {
 .hint,
 .error {
   grid-column: 2;
+  justify-self: end;
+  width: 100%;
   margin: 0;
   font-size: 0.92rem;
 }
@@ -541,6 +551,11 @@ th {
   .hint,
   .error {
     grid-column: 1;
+    justify-self: stretch;
+  }
+
+  .auth-panel > div:first-child {
+    grid-row: auto;
   }
 
   .sidebar {
