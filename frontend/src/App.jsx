@@ -148,7 +148,12 @@ function AuthPage({ sessionMessage = "" }) {
           {error && <p className="error">{error}</p>}
           <button disabled={loading}>{loading ? "Please wait..." : "Continue"}</button>
         </form>
-        <p className="hint">Admin demo: admin@docapp.com / Admin@123</p>
+        <div className="hint demo-logins">
+          <strong>Demo logins</strong>
+          <span>Admin: admin@docapp.com / Admin@123</span>
+          <span>Doctor: doctor@gmail.com / 12345678</span>
+          <span>Patient: patient@gmail.com / 12345678</span>
+        </div>
       </section>
     </div>
   );

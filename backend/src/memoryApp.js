@@ -186,7 +186,13 @@ export function createMemoryApp() {
   app.post("/api/auth/login", (req, res) => {
     const email = String(req.body.email || "").trim().toLowerCase();
     const user = db.users.find((item) => item.email === email && item.password === req.body.password);
-    if (!user) return res.status(401).json({ message: "Invalid email or password" });
+    if (!user) {
+      const demoEmails = ["doctor@gmail.com", "patient@gmail.com"];
+      const message = demoEmails.includes(email)
+        ? "Invalid password. Demo password is 12345678"
+        : "Invalid email or password";
+      return res.status(401).json({ message });
+    }
     res.json({ token: sign(user), user: publicUser(user) });
   });
 

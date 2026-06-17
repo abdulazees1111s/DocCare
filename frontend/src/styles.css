@@ -187,6 +187,16 @@ textarea {
   font-size: 0.92rem;
 }
 
+.demo-logins {
+  display: grid;
+  gap: 4px;
+  color: #536271;
+}
+
+.demo-logins strong {
+  color: #17202a;
+}
+
 .error {
   color: #b42318;
 }
