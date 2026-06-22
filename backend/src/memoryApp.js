@@ -85,7 +85,11 @@ function id(prefix) {
 }
 
 function sign(user) {
-  return jwt.sign({ id: user._id, role: user.role }, secret, { expiresIn: "7d" });
+  return jwt.sign(
+    { id: user._id, role: user.role, name: user.name, email: user.email, phone: user.phone },
+    secret,
+    { expiresIn: "7d" }
+  );
 }
 
 function publicUser(user) {
@@ -98,8 +102,14 @@ function auth(req, res, next) {
   if (!token) return res.status(401).json({ message: "Authentication required" });
   try {
     const payload = jwt.verify(token, secret);
-    const user = db.users.find((item) => item._id === payload.id);
-    if (!user) return res.status(401).json({ message: "Invalid session" });
+    const user =
+      db.users.find((item) => item._id === payload.id) || {
+        _id: payload.id,
+        name: payload.name || "Demo User",
+        email: payload.email || "",
+        role: payload.role,
+        phone: payload.phone || ""
+      };
     req.user = user;
     next();
   } catch {

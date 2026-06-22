@@ -608,10 +608,10 @@ export default function App() {
     localStorage.setItem("user", JSON.stringify(data.user));
     setUser(data.user);
     setSessionMessage("");
-    await refreshMe();
+    await refreshMe({ clearOnFail: false });
   }
 
-  async function refreshMe() {
+  async function refreshMe({ clearOnFail = true } = {}) {
     if (!localStorage.getItem("token")) {
       clearSession();
       return;
@@ -622,7 +622,9 @@ export default function App() {
       setProfile(data.profile);
       localStorage.setItem("user", JSON.stringify(data.user));
     } catch (err) {
-      clearSession("Session expired. Please login again.");
+      if (clearOnFail) {
+        clearSession("Session expired. Please login again.");
+      }
       throw err;
     }
   }
